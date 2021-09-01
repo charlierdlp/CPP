@@ -3,8 +3,9 @@ OBJS	= ${SRCS:.cpp=.o}
 NAME	= megaphone
 CC		= clang++
 RM		= rm -f
-CFLAGS	= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SANITIZE = -g -fsanitize=address
+
 %.o: %.c
 	${CC} -c $< -o $@
 
