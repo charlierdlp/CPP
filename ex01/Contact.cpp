@@ -36,3 +36,27 @@ void	Contact::setDarkestSecret(std::string darkestSecret)
 {
     this->_darkestSecret = darkestSecret;
 }
+
+Contact addContact(void)
+{
+    Contact new_contact;
+    std::string tmp;
+
+    std::cout << "First name: ";
+    std::cin >> tmp;
+    new_contact.setFirstName(tmp);
+    std::cout << "Last name: ";
+    std::cin >> tmp;
+    new_contact.setLastName(tmp);
+    std::cout << "Nickname: ";
+    std::cin >> tmp;
+    new_contact.setNickName(tmp);
+    std::cout << "Phone number: ";
+    std::cin >> tmp;
+    new_contact.setPhoneNumber(tmp);
+    std::cout << "Darkest secret: ";
+    std::cin >> tmp;
+    new_contact.setDarkestSecret(tmp);
+    std::cout << std::endl << "Contact saved succesfully" << std::endl;
+    return (new_contact);
+}

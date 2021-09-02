@@ -26,7 +26,7 @@ int main()
         std::cin >> input;
         if (!input.compare("ADD"))
         {
-           // addcontact();
+           //addContact();
         }
         else if (!input.compare("EXIT"))
             menu = 0;
