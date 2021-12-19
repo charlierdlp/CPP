@@ -28,8 +28,14 @@ class Contact
 		~Contact();
 
 		void	setFirstName(std::string firstName);
-		void	setLastName(std::string firstName);
-		void	setNickName(std::string firstName);
-		void	setPhoneNumber(std::string firstName);
-		void	setDarkestSecret(std::string firstName);
+		void	setLastName(std::string lastName);
+		void	setNickName(std::string nickname);
+		void	setPhoneNumber(std::string phoneNumber);
+		void	setDarkestSecret(std::string darkestSecret);
+
+		std::string	getfirstName();
+		std::string	getlastName();
+		std::string	getnickName();
+		std::string	getphoneNumber();
+		std::string	getdarkestSecret();
 };
