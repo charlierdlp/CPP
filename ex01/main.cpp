@@ -14,6 +14,7 @@
 
 int main()
 {
+    Phonebook phonebook;
     int menu;
     std::string input;
 
@@ -26,7 +27,7 @@ int main()
         std::cin >> input;
         if (!input.compare("ADD"))
         {
-           //addContact();
+           phonebook.addContact();
         }
         else if (!input.compare("EXIT"))
             menu = 0;

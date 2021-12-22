@@ -19,5 +19,11 @@
 class Phonebook
 {
     private:
-           Contact _contacts[8];
+            Contact _contacts[8];
+    
+    public:
+            Phonebook();
+            ~Phonebook();
+            void addContact();
+            void searchContact();
 };
