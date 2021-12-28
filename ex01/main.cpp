@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 19:25:58 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/09/01 20:36:10 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:49:17 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int main()
         if (!input.compare("ADD"))
         {
            phonebook.addContact();
+        }
+        else if (!input.compare("SEARCH"))
+        {
+            phonebook.searchContact();
         }
         else if (!input.compare("EXIT"))
             menu = 0;

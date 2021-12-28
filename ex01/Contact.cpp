@@ -6,11 +6,19 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:38:22 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/09/01 20:12:04 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/28 20:34:00 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact()
+{
+}
+
+Contact::~Contact()
+{
+}
 
 void    Contact::setFirstName(std::string firstName)
 {
@@ -62,6 +70,7 @@ std::string Contact::getdarkestSecret()
     return(this->_darkestSecret);
 }
 
+/*
 Contact addContact(void)
 {
     Contact new_contact;
@@ -85,3 +94,4 @@ Contact addContact(void)
     std::cout << std::endl << "Contact saved succesfully" << std::endl;
     return (new_contact);
 }
+*/
