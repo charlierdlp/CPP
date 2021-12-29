@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:06:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/29 14:08:54 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/29 20:00:36 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
-#include <string>
+#include <string.h>
+#include <unistd.h>
 
 class Phonebook
 {
@@ -25,6 +26,6 @@ class Phonebook
     public:
             Phonebook();
             ~Phonebook();
-            void addContact();
-            void searchContact();
+            int addContact();
+            void searchContact(int count);
 };

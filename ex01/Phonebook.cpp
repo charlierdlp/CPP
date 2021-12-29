@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:44:40 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/29 14:07:50 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/29 20:18:28 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Phonebook::~Phonebook()
 }
 
 
-void Phonebook::addContact(void)
+int Phonebook::addContact(void)
 {
 	Contact new_contact;
 	std::string tmp;
@@ -47,20 +47,34 @@ void Phonebook::addContact(void)
 	new_contact.setDarkestSecret(tmp);
 	std::cout << std::endl << "Contact saved succesfully" << std::endl;
 	_contacts[i] = new_contact;
+	i++;
+	return (i);
 }
 
-void Phonebook::searchContact()
+void Phonebook::searchContact(int count)
 {
 	int index;
 
 	index = 0;
-	std::cout << "-------    ------------    -----------     ----------" << std::endl;
-	std::cout << "|INDEX|    |FIRST NAME|    |LAST NAME|     |NICKNAME|" << std::endl;
-	std::cout << "-------    ------------    -----------     ----------" << std::endl;
-	std::cout << setw(10) << "|"
-	std::cout << this->_contacts[0].getfirstName() << std::endl;
-	std::cout << this->_contacts[0].getlastName() << std::endl;
-	std::cout << this->_contacts[0].getnickName() << std::endl;
-	std::cout << this->_contacts[0].getphoneNumber() << std::endl;
-	std::cout << this->_contacts[0].getdarkestSecret() << std::endl;
+	if (count == 0)
+	{
+		system("clear");
+		std::cout << "Error: empty Phone Book" << std::endl;
+		sleep(2);
+		system("clear");
+		return ;
+	}
+	std::cout << "  -------    --------   ---------   --------" << std::endl;
+	std::cout << " | INDEX |  |  NAME  | |LAST NAME| |NICKNAME|" << std::endl;
+	std::cout << "  -------    --------   ---------   --------" << std::endl;
+	while (index < count)
+	{
+		std::cout << "|" << std::setw(10) << index << "|"
+		<< std::setw(10) << this->_contacts[index].getfirstName() << "|"
+		<< std::setw(10) << this->_contacts[index].getlastName() << "|"
+		<< std::setw(10) << this->_contacts[index].getnickName() << "|" << std::endl;
+		index++;
+	}
+	std::cout << "Enter the index of the contact you want to display: " << std::endl;
+
 }
