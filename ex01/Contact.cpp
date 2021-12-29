@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 18:38:22 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/28 20:34:00 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/29 13:01:33 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,11 @@ std::string Contact::getdarkestSecret()
     return(this->_darkestSecret);
 }
 
-/*
-Contact addContact(void)
+bool Contact::is_empty()
 {
-    Contact new_contact;
-    std::string tmp;
-
-    std::cout << "First name: ";
-    std::cin >> tmp;
-    new_contact.setFirstName(tmp);
-    std::cout << "Last name: ";
-    std::cin >> tmp;
-    new_contact.setLastName(tmp);
-    std::cout << "Nickname: ";
-    std::cin >> tmp;
-    new_contact.setNickName(tmp);
-    std::cout << "Phone number: ";
-    std::cin >> tmp;
-    new_contact.setPhoneNumber(tmp);
-    std::cout << "Darkest secret: ";
-    std::cin >> tmp;
-    new_contact.setDarkestSecret(tmp);
-    std::cout << std::endl << "Contact saved succesfully" << std::endl;
-    return (new_contact);
+    if (this->_firstName.empty() && this->_lastName.empty() &&
+    this->_nickname.empty() && this->_phoneNumber.empty() && _darkestSecret.empty())
+        return (true);
+    else
+        return (false);
 }
-*/

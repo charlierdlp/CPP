@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 19:25:58 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/28 18:49:17 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/29 12:03:46 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ int main()
         std::cout << "|Phone book|" << std::endl;
         std::cout << "------------" << std::endl;
         std::cout << "Enter a valid option (ADD, SEARCH, EXIT)" << std::endl;
-        std::cin >> input;
+        std::getline(std::cin, input);
+
         if (!input.compare("ADD"))
-        {
            phonebook.addContact();
-        }
         else if (!input.compare("SEARCH"))
-        {
             phonebook.searchContact();
-        }
         else if (!input.compare("EXIT"))
             menu = 0;
         else 

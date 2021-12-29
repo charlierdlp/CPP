@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:22:43 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/09/01 20:04:35 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2021/12/29 12:57:46 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Contact
 		void	setNickName(std::string nickname);
 		void	setPhoneNumber(std::string phoneNumber);
 		void	setDarkestSecret(std::string darkestSecret);
+		bool	is_empty();
 
 		std::string	getfirstName();
 		std::string	getlastName();
@@ -39,3 +40,4 @@ class Contact
 		std::string	getphoneNumber();
 		std::string	getdarkestSecret();
 };
+
