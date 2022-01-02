@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:44:40 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/29 20:18:28 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/01/02 14:20:07 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,24 @@ int Phonebook::addContact(void)
 	return (i);
 }
 
+void Phonebook::displayContact(std::string input)
+{
+	int index;
+	std::stringstream tmp;
+
+	tmp << input;
+	tmp >> index;
+	std::cout << "First name: " << this->_contacts[index].getfirstName() << std::endl;
+	std::cout << "Last name: " << this->_contacts[index].getlastName() << std::endl;
+	std::cout << "Nickname: " << this->_contacts[index].getnickName() << std::endl;
+	std::cout << "Phone number: " << this->_contacts[index].getphoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << this->_contacts[index].getdarkestSecret() << std::endl;
+}
+
 void Phonebook::searchContact(int count)
 {
 	int index;
+	std::string input;
 
 	index = 0;
 	if (count == 0)
@@ -75,6 +90,8 @@ void Phonebook::searchContact(int count)
 		<< std::setw(10) << this->_contacts[index].getnickName() << "|" << std::endl;
 		index++;
 	}
+	std::cout << " -------------------------------------------" << std::endl;
 	std::cout << "Enter the index of the contact you want to display: " << std::endl;
-
+	std::getline(std::cin, input);
+	displayContact(input);
 }

@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 12:06:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/12/29 20:00:36 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/01/02 14:21:07 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iomanip>
 #include <string.h>
 #include <unistd.h>
+#include <sstream>
 
 class Phonebook
 {
@@ -28,4 +29,5 @@ class Phonebook
             ~Phonebook();
             int addContact();
             void searchContact(int count);
+            void displayContact(std::string input);
 };
