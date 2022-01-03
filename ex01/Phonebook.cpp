@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:44:40 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/01/02 21:30:58 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/01/03 12:08:44 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,7 @@ void Phonebook::addContact(void)
 {
 	Contact new_contact;
 	std::string tmp;
-	int i;
 
-	i = 0;
-	while (!this->_contacts[i].is_empty() && i < 8)
-		i++;
 	std::cout << "First name: ";
 	std::getline(std::cin, tmp);
 	new_contact.setFirstName(tmp);
@@ -59,10 +55,10 @@ void Phonebook::addContact(void)
 	std::getline(std::cin, tmp);
 	new_contact.setDarkestSecret(tmp);
 	std::cout << std::endl << "Contact saved succesfully" << std::endl;
-	_contacts[i % 8] = new_contact;
-	if (i < 8)
+	_contacts[this->index % 8] = new_contact;
+	if (this->index < 8)
 		this->count++;
-	printf("count:%d  \n i:%d\n", this->count, i);
+	this->index++;
 }
 
 void Phonebook::displayContact(std::string input)
@@ -92,7 +88,7 @@ void Phonebook::searchContact()
 	int index;
 	std::string input;
 
-	index = 1;
+	index = 0;
 	if (this->count == 0)
 	{
 		system("clear");
