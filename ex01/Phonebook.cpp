@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:44:40 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/01/03 12:08:44 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/01/04 22:22:36 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook()
 {
+}
+
+bool Phonebook::isNumber(std::string str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		if (!isdigit(str[i]))
+			return (false);
+		i++;
+	}
+	return (true);
 }
 
 std::string	Phonebook::display(std::string str)
@@ -55,24 +68,32 @@ void Phonebook::addContact(void)
 	std::getline(std::cin, tmp);
 	new_contact.setDarkestSecret(tmp);
 	std::cout << std::endl << "Contact saved succesfully" << std::endl;
+	if (new_contact.is_empty())
+	{
+		system("clear");
+		std::cout << "Error: contact cannot be empty!" << std::endl;
+		sleep(1);
+		system("clear");
+		return ;
+	}
 	_contacts[this->index % 8] = new_contact;
 	if (this->index < 8)
 		this->count++;
 	this->index++;
 }
 
-void Phonebook::displayContact(std::string input)
+void Phonebook::displayContact(std::string input, int max)
 {
 	int index;
 	std::stringstream tmp;
 
 	tmp << input;
 	tmp >> index;
-	if (this->_contacts[index].is_empty())
+	if (!isNumber(input) || index < 0 || index > --max)
 	{
 		system("clear");
 		std::cout << "Error: contact not found" << std::endl;
-		sleep(2);
+		sleep(1);
 		system("clear");
 		return ;
 	}
@@ -110,6 +131,7 @@ void Phonebook::searchContact()
 	}
 	std::cout << " -------------------------------------------" << std::endl;
 	std::cout << "Enter the index of the contact you want to display: " << std::endl;
+	std::cout << ">";
 	std::getline(std::cin, input);
-	displayContact(input);
+	displayContact(input, index);
 }

@@ -6,14 +6,14 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 11:51:44 by cruiz-de          #+#    #+#             */
-/*   Updated: 2021/08/31 12:58:24 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/01/04 21:03:59 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
 
-void volume (char *word)
+char  *volume (char *word)
 {
     int i;
 
@@ -23,6 +23,7 @@ void volume (char *word)
         word[i] = toupper(word[i]);
         i++;
     }
+    return (word);
 }
 
 int main(int argc, char **argv)
@@ -37,8 +38,8 @@ int main(int argc, char **argv)
         i = 1;
         while (argv[i])
         {
-            volume(argv[i]);
-            std::cout << argv[i];
+            
+            std::cout << volume(argv[i]);;
             i++;
         }
         std::cout << std::endl;

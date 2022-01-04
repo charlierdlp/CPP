@@ -1,6 +1,6 @@
-SRCS	= megaphone.cpp
+SRCS	= Account.cpp test.cpp
 OBJS	= ${SRCS:.cpp=.o}
-NAME	= megaphone
+NAME	= globalbanksters
 CC		= clang++
 RM		= rm -f
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
