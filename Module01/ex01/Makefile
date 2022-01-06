@@ -1,4 +1,4 @@
-SRCS	= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS	= main.cpp Zombie.cpp ZombieHorde.cpp
 OBJS	= ${SRCS:.cpp=.o}
 NAME	= zombie
 CC		= clang++
