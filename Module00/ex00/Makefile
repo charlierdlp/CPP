@@ -6,7 +6,7 @@ RM		= rm -f
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SANITIZE = -g -fsanitize=address
 
-%.o: %.c
+%.o: %.cpp
 	${CC} -c $< -o $@
 
 ${NAME}:	${OBJS}
