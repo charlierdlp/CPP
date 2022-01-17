@@ -4,6 +4,16 @@
 std::string replace(std::string line, std::string s1, std::string s2)
 {
 
+	for (int i = 0; line[i]; i++)
+	{
+		i = line.find(s1, i);
+		if (i == static_cast<int>(std::string::npos))
+			break ;
+		line.erase(i, s1.length());
+		line.insert(i, s2);
+		i += s2.length();
+	}
+	return (line);
 }
 
 int main(int argc, char **argv)
@@ -28,8 +38,6 @@ int main(int argc, char **argv)
 	std::ofstream dst(argv[1] + extension);
 	while (getline(src, line))
 	{
-		line = replace(line, s1, s2);
+		dst << replace(line, s1, s2) << std::endl;
 	}
-	
-
 }
