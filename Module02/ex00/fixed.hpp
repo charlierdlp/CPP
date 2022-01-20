@@ -1,6 +1,8 @@
 #pragma once
 
-class fixed
+#include <iostream>
+
+class Fixed
 {
 	private:
 		int _value;
