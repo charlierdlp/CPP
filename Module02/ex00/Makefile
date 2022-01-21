@@ -1,4 +1,4 @@
-SRCS	= main.cpp fixed.cpp
+SRCS	= main.cpp Fixed.cpp
 OBJS	= ${SRCS:.cpp=.o}
 NAME	= fixed
 CC		= clang++
