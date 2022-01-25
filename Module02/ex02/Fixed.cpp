@@ -2,28 +2,28 @@
 
 Fixed::Fixed() : _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	//std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	//std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
 Fixed::Fixed(int const integer) : _value(integer * (1 << this->_bits))
 {
-	std::cout << "Int constructor called" << std::endl;
+	//std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float const float_n) : _value(roundf(float_n * (1 << this->_bits)))
 {
-	std::cout << "Float constructor called" << std::endl;
+	//std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
@@ -49,7 +49,7 @@ int Fixed::toInt(void) const
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	std::cout << "Assignation operator called"<< std::endl;
+	//std::cout << "Assignation operator called"<< std::endl;
 	this->_value = fixed.getRawBits();
 	return (*this);
 }
@@ -149,14 +149,14 @@ Fixed	Fixed::operator/(const Fixed &fixed)
 	return(result);
 }
 
-static	const Fixed &max(Fixed &n1, Fixed &n2)
+const Fixed &Fixed::max(const Fixed &n1, const Fixed &n2)
 {
 	if (n1 > n2)
 		return (n1);
 	return (n2);
 }
 
-static	const Fixed &min(Fixed &n1, Fixed &n2)
+const Fixed &Fixed::min(const Fixed &n1, const Fixed &n2)
 {
 	if (n1 < n2)
 		return (n1);
