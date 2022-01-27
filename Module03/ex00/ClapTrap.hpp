@@ -17,10 +17,10 @@ class ClapTrap
 		~ClapTrap();
 		ClapTrap	&operator=(const ClapTrap &clapTrap);
 
-		void	setName(std::string name);
-		void	setHitPoints(int _hitpoints);
-		void	setEnergyPoints(int _energyPoints);
-		void	setAttackDamage(int _attackDamage);
+		//void	setName(std::string name);
+		//void	setHitPoints(int _hitpoints);
+		//void	setEnergyPoints(int _energyPoints);
+		//void	setAttackDamage(int _attackDamage);
 		//getters
 		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
