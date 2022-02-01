@@ -1,6 +1,6 @@
-SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp
 OBJS	= ${SRCS:.cpp=.o}
-NAME	= Diamond
+NAME	= Animal
 CC		= clang++
 RM		= rm -f
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
