@@ -3,7 +3,7 @@ OBJS	= ${SRCS:.cpp=.o}
 NAME	= FragTrap
 CC		= clang++
 RM		= rm -f
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
 SANITIZE = -g -fsanitize=address
 
 %.o: %.cpp

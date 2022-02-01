@@ -1,12 +1,11 @@
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main ()
 {
 	ClapTrap mark1("Jarvis");
 	ScavTrap mark2("Friday");
 	FragTrap mark3("Mark");
+	DiamondTrap mark4("Rock");
 
 	mark1.attack("Friday");
 	mark2.takeDamage(20);
@@ -17,4 +16,5 @@ int main ()
 
 	mark2.guardGate();
 	mark3.highFivesGuys();
+	mark4.whoAmI();
 }
