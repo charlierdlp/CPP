@@ -10,6 +10,7 @@ class Zombie
 	public:
 
 		Zombie();
+		Zombie(std::string _name);
 		~Zombie();
 
 		void	announce();

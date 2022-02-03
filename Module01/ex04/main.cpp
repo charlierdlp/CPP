@@ -35,6 +35,11 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	std::ifstream src(argv[1]);
+	if (src.fail())
+	{
+		std::cout << strerror(errno) << std::endl;
+		return (0);
+	}
 	std::ofstream dst(argv[1] + extension);
 	while (getline(src, line))
 	{
