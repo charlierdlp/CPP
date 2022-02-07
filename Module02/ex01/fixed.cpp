@@ -1,4 +1,4 @@
-#include "fixed.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : _value(0)
 {
