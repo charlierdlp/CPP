@@ -13,7 +13,7 @@ Animal::Animal(std::string type) : _type(type)
 Animal::Animal(const Animal &copy)
 {
 	this->_type = copy._type;
-	std::cout	<< "Animal copy Constructor called" << std::endl;
+	std::cout << "Animal copy Constructor called" << std::endl;
 }
 
 Animal::~Animal()
