@@ -24,4 +24,3 @@ std::string const &AMateria::getType() const
 {
 	return this->_type;
 }
-
