@@ -36,3 +36,30 @@ std::string const & Character::getName() const
 {
 	return this->_name;
 }
+
+void Character::equip(AMateria *m)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			return;
+		}
+	}
+}
+
+void Character::unequip(int id)
+{
+	if (this->_inventory[id] != NULL)
+	{
+		delete this->_inventory[id];
+		this->_inventory[id] = NULL;
+	}
+}
+
+void Character::use(int id, ICharacter &target)
+{
+	if (this->_inventory[id] != NULL)
+		this->_inventory[id]->use(target);
+}
