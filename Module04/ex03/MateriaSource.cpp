@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:10:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/15 14:14:17 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:33:39 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &materia)
 	
 	for (int i = 0; i < 4; i++)
 		this->_materia[i] = materia._materia[i];
+	return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *new_m)

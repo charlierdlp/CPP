@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:11:53 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/15 14:13:48 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/15 17:46:34 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		MateriaSource *_materia[4];
+		AMateria *_materia[4];
 
 	public:
 		MateriaSource();
