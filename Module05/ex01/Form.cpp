@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:44:55 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/17 14:02:04 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/17 19:36:10 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,20 @@ Form::Form(const Form &copy) : _name(copy.getName()), _signed(copy.isSigned()), 
 
 Form &Form::operator=(const Form &form)
 {
-	this->_gradeExecute = form.getGradeExecute();
-	this->_gradeSign = form.getGradeSign();
-	this->_signed = form.isSigned();
 	return *this;
 }
 
-From::~From()
+Form::~Form()
 {
 	
 }
 
-std::string	From::getName() const
+std::string	Form::getName() const
 {
 	return this->_name;
 }
 
-int From::getGrade() const
+int Form::getGrade() const
 {
 	return this->_grade;
 }
@@ -56,11 +53,11 @@ void 	Form::beSigned(Bureaucrat &bureaucrat)
 		this->_signed = true;
 }
 
-std::ostream &operator<<(std::ostream &output, From const &form)
+std::ostream &operator<<(std::ostream &output, Form const &form)
 {
 	output << "Form: " << form.getName() << " form grade: " << form.getGradeSign() 
 	<< " form grade to execute: " << form.getGradeExecute() 
-	<< " status: " << form.<< std::endl;
+	<< " status: " << form.isSigned() << std::endl;
 
 	return output;
 }
