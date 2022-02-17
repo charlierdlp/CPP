@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:08:54 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/16 13:38:38 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:14:09 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat
 {
 	private:
 		const std::string _name;
-		unsigned int _grade;
+		int _grade;
 	
 	public:
 		Bureaucrat();
@@ -30,7 +30,7 @@ class Bureaucrat
 
 		Bureaucrat	&operator=(const Bureaucrat &bureaucrat);
 		std::string	getName() const;
-		unsigned int	getGrade() const;
+		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
 		

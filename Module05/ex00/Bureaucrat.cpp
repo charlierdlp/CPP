@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:09:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/16 12:40:39 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:04:56 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
-	if (grade < 1)
+	if (this->grade < 1)
 		throw Bureaucrat::GradeTooLowException();
-	else if (grade > 150)
+	else if (this->grade > 150)
 		throw Bureaucrat::GradeTooHighException();
 }
 
@@ -46,7 +46,7 @@ std::string	Bureaucrat::getName() const
 	return this->_name;
 }
 
-unsigned int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }

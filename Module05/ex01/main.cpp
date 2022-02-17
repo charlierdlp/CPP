@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/16 13:41:22 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:54:47 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ int main ()
 {
 	try
 	{
-		Bureaucrat bureaucrat1("Tom", 10);
+		Form		form1("ISO1", 10, 10);
+		Bureaucrat	bureaucrat1("Tom", 10);
 		std::cout << "Grade: " << bureaucrat1.getGrade() << std::endl;
+		std::cout << form1;
+		std::cout << bureaucrat1;
 	}
 	catch(const std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/16 13:41:22 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:41:51 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main ()
 	catch(Bureaucrat::GradeTooHighException& e)
 	{
 		std::cerr << e.what() << std::endl;
-
 	}
 
 	return 0;
