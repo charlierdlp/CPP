@@ -10,15 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 
-class PresidentialPardonForm : public Form
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon", 25, 5)
 {
-	public:
-		PresidentialPardonForm(std::string target);
-		PresidentialPardonForm(const PresidentialPardonForm &copy);
-		~PresidentialPardonForm();
+	this->target = target;
+}
 
-		PresidentialPardonForm	&operator=(const PresidentialPardonForm &form);
-		void	execute(const Bureaucrat &executor) const;
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : Form(src)
+{
+	*this = src;
+}
+
+PresidentialPardonForm::~PresidentialPardonForm(void)
+{
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+
 }

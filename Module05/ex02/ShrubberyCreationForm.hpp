@@ -10,3 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include "Form.hpp"
+
+class ShrubberyCreationForm : public Form
+{
+	public:
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(ShrubberyCreationForm const &src);
+		~ShrubberyCreationForm(void);
+
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &form);
+
+		void					execute(Bureaucrat const &executor) const;
+};
