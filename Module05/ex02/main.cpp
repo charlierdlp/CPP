@@ -6,28 +6,25 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/18 19:40:43 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/22 13:13:35 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main ()
 {
 	try
 	{
-		Form		form1("ISO1", 10, 10);
-		Bureaucrat	bureaucrat1("Tom", 11);
-		std::cout << form1;
-		std::cout << bureaucrat1;
-
-		bureaucrat1.signForm(form1);
-		std::cout << form1;
-		bureaucrat1.incrementGrade();
-		bureaucrat1.incrementGrade();
-		bureaucrat1.signForm(form1);
-		std::cout << bureaucrat1;
-		std::cout << form1;
+		ShrubberyCreationForm shrubbery("hey");
+		Bureaucrat	bureaucrat1("Ye", 1);
+		Bureaucrat	bureaucrat2("Skete", 150);
+		bureaucrat2.executeForm(shrubbery);
+		bureaucrat1.signForm(shrubbery);
+		bureaucrat2.signForm(shrubbery);
+		bureaucrat1.executeForm(shrubbery);
+		bureaucrat2.executeForm(shrubbery);
 
 	}
 	catch(const std::exception& e)
