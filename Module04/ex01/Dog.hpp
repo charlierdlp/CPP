@@ -11,7 +11,7 @@ class Dog : public Animal
 	public:
 		Dog();
 		Dog(const Dog &copy);
-		virtual ~Dog();
+		~Dog();
 		Dog	&operator=(const Dog &dog);
 
 		Brain	*getBrain() const;

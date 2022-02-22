@@ -72,20 +72,18 @@ unsigned int ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::attack(std::string const &target)
 {
-	this->_attackDamage += _hitpoints;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target <<", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_attackDamage += amount;
-	this->_energyPoints -= amount;
+	this->_hitpoints -= amount;
 	std::cout << this->_name << " takes " << amount << " points of damage!" << std::endl;
 
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->_energyPoints += amount;
+	this->_hitpoints += amount;
 	std::cout << this->_name << " has been repaired by " << amount << " points" << std::endl;
 }

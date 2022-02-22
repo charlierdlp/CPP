@@ -1,4 +1,4 @@
-SRCS	= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp 
+SRCS	= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS	= ${SRCS:.cpp=.o}
 NAME	= Bureaucrat
 CC		= clang++
@@ -7,7 +7,7 @@ CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SANITIZE = -g -fsanitize=address
 
 %.o: %.cpp
-	${CC} -c $< -o $@
+	${CC} $(CPPFLAGS) -c $< -o $@
 
 ${NAME}:	${OBJS}
 			${CC} $(CPPFLAGS) $(OBJS) -o ${NAME}

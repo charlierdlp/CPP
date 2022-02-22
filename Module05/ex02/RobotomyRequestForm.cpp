@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:53:33 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 13:29:49 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:49:16 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,17 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &s
 	return (*this);
 }
 
-void	execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	
+	int random;
+	this->check_execute(executor);
+
+	random = rand() % 2;
+	std::cout << "RIZZZ RIZZZ ";
+	if (!random)
+		std::cout << this->target << " has been robotomized unsuccessfully" << std::endl;
+	else
+		std::cout << this->target << " has been robotomized successfully" << std::endl;
+
+
 }

@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:45:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/18 18:43:36 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:37:19 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ class Form
 		int			getGradeExecute() const;
 		void 		beSigned(Bureaucrat &bureaucrat);
 
+		void				check_execute(Bureaucrat const &executor) const;
 		virtual void		execute(Bureaucrat const &executor) const = 0;
+
 
 		class GradeTooHighException : public std::exception
 		{
@@ -55,6 +57,15 @@ class Form
 		};
 
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Grade Too Low!";
+				}
+		};
+
+		class FormUnsignedException : public std::exception
 		{
 			public:
 				const char *what() const throw()

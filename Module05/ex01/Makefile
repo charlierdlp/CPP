@@ -7,7 +7,7 @@ CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SANITIZE = -g -fsanitize=address
 
 %.o: %.cpp
-	${CC} -c $< -o $@
+	${CC} $(CPPFLAGS) -c $< -o $@
 
 ${NAME}:	${OBJS}
 			${CC} $(CPPFLAGS) $(OBJS) -o ${NAME}

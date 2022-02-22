@@ -7,7 +7,7 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	this->setHitPoints(10);
+	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
 	std::cout << "ScavTrap constructor called" << std::endl;
