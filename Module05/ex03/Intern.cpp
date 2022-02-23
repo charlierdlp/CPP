@@ -6,11 +6,14 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:33:26 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 12:33:28 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:40:58 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern(void)
 {
@@ -25,7 +28,7 @@ Intern::~Intern(void)
 {
 }
 
-Intern &Intern::operator=(Intern const &src)
+Intern &Intern::operator=(Intern const &)
 {
 	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:45:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:39:19 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:39:13 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ class Bureaucrat;
 
 class Form
 {
+	protected:
+		std::string target;
+
 	private:
 		const std::string _name;
 		bool			_signed;
@@ -40,6 +43,10 @@ class Form
 		int			getGradeExecute() const;
 		void 		beSigned(Bureaucrat &bureaucrat);
 
+		void				check_execute(Bureaucrat const &executor) const;
+		virtual void		execute(Bureaucrat const &executor) const = 0;
+
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -55,6 +62,15 @@ class Form
 				const char *what() const throw()
 				{
 					return "Grade Too Low!";
+				}
+		};
+
+		class FormUnsignedException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return "Form is unsigned!";
 				}
 		};
 };

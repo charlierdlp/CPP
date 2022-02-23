@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:09:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:14:28 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 19:49:39 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	Bureaucrat::executeForm(Form &form)
 {
 	try
 	{
-		std::cout << this->getName() << " executes: " << form.getName() << std::endl;
 		form.execute(*this);
 	}
 	catch (Form::FormUnsignedException &e)
