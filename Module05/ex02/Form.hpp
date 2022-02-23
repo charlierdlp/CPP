@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:45:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 20:37:19 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:00:50 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ class Form
 			public:
 				const char *what() const throw()
 				{
-					return "Grade Too Low!";
+					return "Form is unsigned!";
 				}
 		};
 };

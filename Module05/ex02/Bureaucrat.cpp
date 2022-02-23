@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:09:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/17 13:58:47 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:57:49 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,19 @@ void	Bureaucrat::decrementGrade()
 
 void	Bureaucrat::signForm(Form &form)
 {
+	if (form.isSigned())
+	{
+		std::cout << "Form: " << form.getName() << " is already signed!" << std::endl;
+		return;
+	}
 	try
 	{
+		std::cout << "Bureaucrat: " << this->_name << " signs form: " << form.getName() << std::endl;
 		form.beSigned(*this);
 	}
-	catch (std::exception &e)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "Bureaucrat: " << this->getName() << " cannot execute the form: " << form.getName() << "| Reason: " << e.what() << std::endl;
 	}
 }
 
@@ -83,12 +89,18 @@ void	Bureaucrat::executeForm(Form &form)
 {
 	try
 	{
+		std::cout << this->getName() << " executes: " << form.getName() << std::endl;
 		form.execute(*this);
 	}
-	catch (std::exception &e)
+	catch (std::FormUnsignedException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "Bureaucrat: " << this->getName() << " cannot execute the form: " << form.getName() << "| Reason: " << e.what() << std::endl;
 	}
+	catch (std::GradeTooLowException &e)
+	{
+		std::cout << "Bureaucrat: " << this->getName() << " cannot execute the form: " << form.getName() << "| Reason: " << e.what() << std::endl;
+	}
+
 }
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat)

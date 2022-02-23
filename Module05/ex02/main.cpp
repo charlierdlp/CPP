@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 20:52:15 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/02/23 13:16:03 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,48 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main ()
+int main()
 {
+	Bureaucrat		boss("Michael Scott", 1);
+	Bureaucrat		assistant("Dwight Schrute", 40);
+	Bureaucrat		temp("Ryan Howard", 150);
+
 	try
 	{
-		//ShrubberyCreationForm shrubbery("hey");
-		Bureaucrat	bureaucrat1("Ye", 1);
-		Bureaucrat	bureaucrat2("Skete", 150);
-		//bureaucrat2.executeForm(shrubbery);
-		//bureaucrat1.signForm(shrubbery);
-		//bureaucrat2.signForm(shrubbery);
-		//bureaucrat1.executeForm(shrubbery);
-		//bureaucrat2.executeForm(shrubbery);
-		RobotomyRequestForm robo("Blender");
-		bureaucrat1.executeForm(robo);
-		bureaucrat1.signForm(robo);
-		bureaucrat1.executeForm(robo);
-		bureaucrat1.executeForm(robo);
-		bureaucrat1.executeForm(robo);
+		PresidentialPardonForm pf("Jim Harper");		// 25, 5
+		std::cout<< pf <<std::endl;
+		pf.beSigned(boss);
+		boss.executeForm(pf);
 	}
-	catch(const std::exception& e)
+	catch (std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
-	return 0;
+	try
+	{
+		RobotomyRequestForm rb("Kevin");				// 72, 45
+		std::cout<< rb <<std::endl;
+
+		rb.beSigned(assistant);
+		assistant.executeForm(rb);
+		boss.executeForm(rb);
+		boss.executeForm(rb);
+		temp.executeForm(rb);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		ShrubberyCreationForm sf("the_office");		// 145, 137
+		std::cout<< sf <<std::endl;
+		sf.beSigned(assistant);
+		std::cout<< sf <<std::endl;
+		assistant.executeForm(sf);
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
 }
