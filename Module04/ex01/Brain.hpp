@@ -5,8 +5,10 @@
 
 class Brain
 {
-	public:
+	protected:
 		std::string ideas[100];
+
+	public:
 		Brain();
 		Brain(const Brain &copy);
 		virtual ~Brain();

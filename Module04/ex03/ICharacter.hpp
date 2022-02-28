@@ -1,7 +1,10 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include "AMateria.hpp"
+
+//* All the functions in the Interface are pure virtual (= 0)
+//* The Subclass MUST override / Implement ALL the pure virtual functions of the interface class
+//* Interfaces can be "Multi-Inherited" as opposed to abstract class
 
 class AMateria;
 

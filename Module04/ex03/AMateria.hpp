@@ -3,6 +3,10 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+//* Abstract classes CAN'T be instantiated
+//* A class is made abstract by declaring at least one function as pure virtual ( = 0)
+//* A pure virtual function MUST BE overriden in the subclass. Otherwise you get a compilation error
+
 class AMateria
 {
 	protected:

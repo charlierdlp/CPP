@@ -2,10 +2,12 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
+/*
 void test()
 {
 	system("leaks Animal");
 }
+*/
 
 int main()
 {
@@ -13,7 +15,7 @@ int main()
 	const Animal* i = new Cat();
 	Animal *friends[4];
 
-	atexit(test);
+	//atexit(test);
 	Dog basic;
 	{
 		Dog tmp = basic;

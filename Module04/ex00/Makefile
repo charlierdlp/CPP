@@ -3,7 +3,7 @@ OBJS	= ${SRCS:.cpp=.o}
 NAME	= Animal
 CC		= clang++
 RM		= rm -f
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 SANITIZE = -g -fsanitize=address
 
 %.o: %.cpp
