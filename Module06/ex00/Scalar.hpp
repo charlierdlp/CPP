@@ -37,7 +37,11 @@ class	Scalar
 		bool			isFloat(std::string value);
 		bool			isChar(std::string value);
 		bool			isDouble(std::string value);
-
+		void			castValues();
+		void			printInt(void);
+		void			printFloat(void);
+		void			printChar(void);
+		void			printDouble(void);
 
 	private:
 		std::string		_value;

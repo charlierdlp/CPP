@@ -22,6 +22,11 @@ int main (int argc, char **argv)
 		return 1;
 	}
 	Scalar	conversion(argv[1]);
+
+	conversion.printInt();
+	conversion.printFloat();
+	conversion.printChar();
+	conversion.printDouble();
 	
 	return 0;
 }

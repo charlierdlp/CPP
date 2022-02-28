@@ -70,15 +70,61 @@ bool Scalar::isDouble(std::string value)
 	return (false);
 }
 
+void	Scalar::castValues()
+{
+	if (_type != INT)
+		_int = static_cast<int>(_int);
+	if (_type != FLOAT)
+		_float = static_cast<float>(_float);
+	if (_type != CHAR)
+		_char = static_cast<char>(_char);
+	if (_type != DOUBLE)
+		_double = static_cast<double>(_double);
+}
+
 Scalar::ScalarType Scalar::checkType()
 {
-	if (isInt(_value))
-		return (INT);
+	if (isChar(_value))
+	{
+		_char = _value[0];
+		return (Scalar::CHAR);
+	}
 	else if (isFloat(_value))
-		return (FLOAT);
-	else if (isChar(_value))
-		return (CHAR);
+	{
+		_float = std::stof(_value);
+		return (Scalar::FLOAT);
+	}
 	else if (isDouble(_value))
-		return (DOUBLE);
-	return (ERROR);
+	{
+		_double = std::stod(_value);
+		return (Scalar::DOUBLE);
+	}
+	else if (isInt(_value))
+	{
+		_int = std::stoi(_value);
+		return (Scalar::INT);
+	}
+	else
+		return (ERROR);
+	castValues();
+}
+
+void	Scalar::printInt()
+{
+	std::cout << "Int: " << _int << std::endl;
+}
+
+void	Scalar::printFloat()
+{
+	std::cout << "Float: " << _float << std::endl;
+}
+
+void	Scalar::printDouble()
+{
+	std::cout << "Double: " << _double << std::endl;
+}
+
+void	Scalar::printChar()
+{
+	std::cout << "Char: " << _char << std::endl;
 }
