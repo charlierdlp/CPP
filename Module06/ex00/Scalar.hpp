@@ -15,16 +15,36 @@
 
 class	Scalar
 {
-	private:
-		int				_int;
-		float			_float;
-		std::string 	_char;
-		double			_double;
 
 	public:
-		Scalar(char *arg);
+		Scalar(void);
+		Scalar(const std::string &value);
 		Scalar(const Scalar &copy);
 		~Scalar(void);
 		Scalar	&operator=(const Scalar &calar);
+
+		typedef enum ScalarType
+		{
+			INT,
+			FLOAT,
+			CHAR,
+			DOUBLE,
+			ERROR
+		}				ScalarType;
+
+		ScalarType		checkType();
+		bool			isInt(std::string value);
+		bool			isFloat(std::string value);
+		bool			isChar(std::string value);
+		bool			isDouble(std::string value);
+
+
+	private:
+		std::string		_value;
+		int				_int;
+		float			_float;
+		char			_char;
+		double			_double;
+		ScalarType		_type;
 };
 
