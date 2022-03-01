@@ -150,7 +150,7 @@ Scalar::ScalarType Scalar::checkType()
 void	Scalar::printChar()
 {
 	std::cout << "char: ";
-    if (_type == ERROR)
+    if (_type == ERROR || _char > std::numeric_limits<char>::max() || _char < std::numeric_limits<char>::min())
         std::cout << "impossible";
 	else if (_char < 32 || _char > 255)
 		std::cout << "Non displayable";
@@ -162,7 +162,7 @@ void	Scalar::printChar()
 void	Scalar::printInt()
 {    
 	std::cout << "int: ";
-	if (_type == ERROR)
+	if (_type == ERROR || _int > std::numeric_limits<int>::max() || _value < std::numeric_limits<int>::min())
         std::cout << "impossible";
 	else
         std::cout << _int;

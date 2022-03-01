@@ -14,7 +14,14 @@
 //https://en.cppreference.com/w/cpp/language/reinterpret_cast
 
 #include <stdint.h>
-#include "Data.hpp"
+#include <iostream>
+
+struct Data
+{
+	int i;
+	char c;
+	float f;
+};
 
 uintptr_t serialize(Data* ptr)
 {
@@ -29,6 +36,22 @@ Data* deserialize(uintptr_t raw)
 int main ()
 {
 	Data data;
+	Data *ptr;
+	uintptr_t raw;
 
-	data.data = 42;
+	data.i = 42;
+	data.c = 'a';
+	data.f = 3.14;
+
+	std::cout << "data.i = " << data.i << std::endl;
+	std::cout << "data.c = " << data.c << std::endl;
+	std::cout << "data.f = " << data.f << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	raw = serialize(&data);
+	ptr = deserialize(raw);
+	std::cout << "ptr->i = " << ptr->i << std::endl;
+	std::cout << "ptr->c = " << ptr->c << std::endl;
+	std::cout << "ptr->f = " << ptr->f << std::endl;
+
+	return 0;
 }
