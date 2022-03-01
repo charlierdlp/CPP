@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:44:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 20:41:23 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:03:30 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 {
-	this->check_execute(executor);
+	Form::execute(executor);
 
 	std::string fileName = this->target + "_shrubbery";
 	std::ofstream file(fileName);

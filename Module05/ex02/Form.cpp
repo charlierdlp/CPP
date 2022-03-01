@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:44:55 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 18:57:57 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:01:38 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,14 @@ void 	Form::beSigned(Bureaucrat &bureaucrat)
 	}
 }
 
-void	Form::check_execute(Bureaucrat const &executor) const
+void	Form::execute(Bureaucrat const & executor) const
 {
 	if (!this->_signed)
 		throw Form::FormUnsignedException();
 	else if (executor.getGrade() > this->_gradeExecute)
 		throw Form::GradeTooLowException();
-	std::cout << executor.getName() << " execute " << this->_name << std::endl;
-}
-
-void	Form::execute(Bureaucrat const & executor) const
-{
-	this->check_execute(executor);
+	else
+		std::cout << executor.getName() << " executes: " << this->_name << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &form)

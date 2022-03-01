@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:45:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:39:13 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:02:14 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ class Form
 		int			getGradeExecute() const;
 		void 		beSigned(Bureaucrat &bureaucrat);
 
-		void				check_execute(Bureaucrat const &executor) const;
 		virtual void		execute(Bureaucrat const &executor) const = 0;
-
 
 		class GradeTooHighException : public std::exception
 		{

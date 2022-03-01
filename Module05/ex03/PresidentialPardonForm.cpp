@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:54:16 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 20:48:53 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:03:14 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	this->check_execute(executor);
+	Form::execute(executor);
 
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

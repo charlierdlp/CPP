@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:33:26 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:40:58 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 12:06:43 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ Intern::~Intern(void)
 {
 }
 
-Intern &Intern::operator=(Intern const &)
+Intern &Intern::operator=(Intern const &intern)
 {
+	if (this == &intern)
+		return *this;
 	return *this;
 }
 

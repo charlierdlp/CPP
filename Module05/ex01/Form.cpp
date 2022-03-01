@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:44:55 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/18 19:35:18 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:34:45 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ Form::Form(const Form &copy) : _name(copy.getName()), _signed(copy.isSigned()), 
 
 Form &Form::operator=(const Form &form)
 {
+	if (this != &form) {
+        *this = form;
+        return *this;
+    }
 	return *this;
 }
 
-Form::~Form()
-{
-	
-}
+Form::~Form() {}
 
 std::string	Form::getName(void) const
 {
@@ -60,7 +61,10 @@ void 	Form::beSigned(Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > this->_gradeSign)
 		throw Form::GradeTooLowException();
 	else
+	{
 		this->_signed = true;
+		std::cout << this->getName() << " was signed by: " << bureaucrat.getName() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &output, Form const &form)

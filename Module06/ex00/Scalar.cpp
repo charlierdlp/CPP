@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:58:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/24 19:43:22 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 12:45:32 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 Scalar::Scalar() : _value("0"), _int(0), _float(0), _char('0'), _double(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Scalar::Scalar(const std::string &value) : _value(value), _int(0), _float(0), _char('0'), _double(0)
 {
-	std::cout << "Constructor called" << std::endl;
 	this->_type = checkType();
 }
 
@@ -43,11 +41,16 @@ Scalar &Scalar::operator=(const Scalar &scalar)
 
 Scalar::~Scalar(void)
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 bool Scalar::isInt(std::string value)
-{}
+{
+	for (int i = 0; value[i]; i++) {
+		if (isdigit(value[i]) == 0 && value[i] != '-' && value[i] != '+')
+			return false;
+	}
+	return true;
+}
 
 bool Scalar::isChar(std::string value)
 {

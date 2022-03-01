@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:52:09 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 12:03:43 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	try
 	{
 		Form *rr = randomIntern.makeForm("Robotomy Request", "Kim");				// 72, 45
@@ -52,6 +54,9 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	
+	std::cout << std::endl;
+
 	try
 	{
 		Form *sc = randomIntern.makeForm("Shrubbery Creation", "stem");			// 145, 137
@@ -63,6 +68,9 @@ int main()
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
+	
+	std::cout << std::endl;
+
 	try
 	{
 		Form *dm = randomIntern.makeForm("Space X", "stem");			// 145, 137

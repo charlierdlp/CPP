@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 19:53:33 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/22 20:49:16 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:49:00 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &s
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	int random;
-	this->check_execute(executor);
+	Form::execute(executor);
 
 	random = rand() % 2;
 	std::cout << "RIZZZ RIZZZ ";

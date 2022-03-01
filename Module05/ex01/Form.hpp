@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:45:36 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 19:39:19 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:20:06 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Form
 	private:
 		const std::string _name;
 		bool			_signed;
-		int const	_gradeSign;
-		int const	_gradeExecute;
+		int const	 _gradeSign;
+		int const _gradeExecute;
 
 
 	public:

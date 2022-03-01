@@ -6,16 +6,13 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:09:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/17 18:43:45 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:16:56 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-{
-
-}
+Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -36,10 +33,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-	
-}
+Bureaucrat::~Bureaucrat() {}
 
 std::string	Bureaucrat::getName() const
 {
@@ -69,7 +63,7 @@ void	Bureaucrat::decrementGrade()
 
 std::ostream &operator<<(std::ostream &output, Bureaucrat const &bureaucrat)
 {
-	output << bureaucrat.getName() << " bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
+	output << "Name: " << bureaucrat.getName() << " - Bureaucrat grade: " << bureaucrat.getGrade() << std::endl;
 
 	return output;
 }

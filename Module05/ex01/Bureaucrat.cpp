@@ -6,16 +6,13 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 20:09:10 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/17 13:58:47 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:38:49 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-{
-
-}
+Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -27,7 +24,6 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy.getName()), _grade(copy.getGrade())
 {
-	
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
@@ -36,10 +32,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-	
-}
+Bureaucrat::~Bureaucrat() {}
 
 std::string	Bureaucrat::getName() const
 {
@@ -69,13 +62,19 @@ void	Bureaucrat::decrementGrade()
 
 void	Bureaucrat::signForm(Form &form)
 {
+	if (form.isSigned())
+	{
+		std::cout << "Form: " << form.getName() << " is already signed!" << std::endl;
+		return;
+	}
 	try
 	{
 		form.beSigned(*this);
+		std::cout << "Bureaucrat: " << this->_name << " signs form: " << form.getName() << std::endl;
 	}
-	catch (std::exception &e)
+	catch (Form::GradeTooLowException &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "Bureaucrat: " << this->getName() << " cannot sign the form: " << form.getName() << " | Reason: " << e.what() << std::endl;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:51:25 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/23 18:55:36 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:58:09 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 int main()
 {
-	Bureaucrat		boss("Michael Scott", 1);
-	Bureaucrat		assistant("Dwight Schrute", 40);
-	Bureaucrat		temp("Ryan Howard", 150);
+	Bureaucrat		boss("Steve", 1);
+	Bureaucrat		assistant("Woz", 40);
+	Bureaucrat		temp("Ryan", 150);
 
 	try
 	{
-		PresidentialPardonForm pf("Jim Harper");		// 25, 5
+		PresidentialPardonForm pf("Trump");		// 25, 5
 		std::cout << pf << std::endl;
 		pf.beSigned(boss);
 		boss.executeForm(pf);
@@ -33,13 +33,16 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << std::endl;
+
 	try
 	{
-		RobotomyRequestForm rb("Kevin");				// 72, 45
+		RobotomyRequestForm rb("Bender");				// 72, 45
 		std::cout << rb << std::endl;
 
 		rb.beSigned(assistant);
 		assistant.executeForm(rb);
+		boss.executeForm(rb);
 		boss.executeForm(rb);
 		boss.executeForm(rb);
 		temp.executeForm(rb);
@@ -48,9 +51,12 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << std::endl;
+
 	try
 	{
-		ShrubberyCreationForm sf("the_office");		// 145, 137
+		ShrubberyCreationForm sf("runaway");		// 145, 137
 		std::cout<< sf <<std::endl;
 		sf.beSigned(assistant);
 		std::cout<< sf <<std::endl;
