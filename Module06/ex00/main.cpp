@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 10:35:59 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/02/28 10:36:01 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 16:36:20 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main (int argc, char **argv)
 	}
 	Scalar	conversion(argv[1]);
 
+	conversion.printChar();
 	conversion.printInt();
 	conversion.printFloat();
-	conversion.printChar();
 	conversion.printDouble();
 	
 	return 0;

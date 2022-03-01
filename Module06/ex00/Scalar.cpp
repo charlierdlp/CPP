@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:58:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/01 12:45:32 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:06:18 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ Scalar::Scalar() : _value("0"), _int(0), _float(0), _char('0'), _double(0)
 Scalar::Scalar(const std::string &value) : _value(value), _int(0), _float(0), _char('0'), _double(0)
 {
 	this->_type = checkType();
+	castValues();
 }
 
 Scalar::Scalar(const Scalar &copy) : _value(copy._value), _int(copy._int), _float(copy._float), _char(copy._char), _double(copy._double)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->_type = copy._type;
 }
 
@@ -73,16 +73,52 @@ bool Scalar::isDouble(std::string value)
 	return (false);
 }
 
+bool Scalar::isPseudo(std::string value)
+{
+	if (value == "inf" || value == "inff" || value == "nan" || value == "nanf"||
+        value == "+inf" || value == "+inff" || value == "-inf" || value == "-inff")
+		return true;
+	return false;
+}
+
 void	Scalar::castValues()
 {
-	if (_type != INT)
-		_int = static_cast<int>(_int);
-	if (_type != FLOAT)
-		_float = static_cast<float>(_float);
-	if (_type != CHAR)
-		_char = static_cast<char>(_char);
-	if (_type != DOUBLE)
-		_double = static_cast<double>(_double);
+	switch (_type)
+	{
+		case CHAR:
+		{
+			_int = static_cast<int>(_char);
+			_float = static_cast<float>(_char);
+			_double = static_cast<double>(_char);
+            break;
+		}
+		case INT:
+		{
+			_char = static_cast<float>(_int);
+			_float = static_cast<float>(_int);
+			_double = static_cast<double>(_int);
+            break;
+		}
+		case FLOAT:
+		{
+			_int = static_cast<int>(_float);
+			_char = static_cast<float>(_float);
+			_double = static_cast<double>(_float);
+            break;
+		}
+		case DOUBLE:
+		{
+			_int = static_cast<int>(_double);
+			_float = static_cast<float>(_double);
+			_char = static_cast<float>(_double);
+			break;
+		}
+		case ERROR: 
+		{
+            _value = "impossible";
+            break;
+        }
+	}
 }
 
 Scalar::ScalarType Scalar::checkType()
@@ -97,7 +133,7 @@ Scalar::ScalarType Scalar::checkType()
 		_float = std::stof(_value);
 		return (Scalar::FLOAT);
 	}
-	else if (isDouble(_value))
+	else if (isDouble(_value) || isPseudo(_value))
 	{
 		_double = std::stod(_value);
 		return (Scalar::DOUBLE);
@@ -109,25 +145,50 @@ Scalar::ScalarType Scalar::checkType()
 	}
 	else
 		return (ERROR);
-	castValues();
-}
-
-void	Scalar::printInt()
-{
-	std::cout << "Int: " << _int << std::endl;
-}
-
-void	Scalar::printFloat()
-{
-	std::cout << "Float: " << _float << std::endl;
-}
-
-void	Scalar::printDouble()
-{
-	std::cout << "Double: " << _double << std::endl;
 }
 
 void	Scalar::printChar()
 {
-	std::cout << "Char: " << _char << std::endl;
+	std::cout << "char: ";
+    if (_type == ERROR)
+        std::cout << "impossible";
+	else if (_char < 32 || _char > 126)
+		std::cout << "Non displayable";
+	else
+        std::cout << "'" << _char << "'";
+    std::cout << std::endl;
+}
+
+void	Scalar::printInt()
+{    
+	std::cout << "int: ";
+	if (_type == ERROR)
+        std::cout << "impossible";
+	else
+        std::cout << _int;
+    std::cout << std::endl;
+}
+
+void	Scalar::printFloat()
+{
+	std::cout << "float: ";
+    if (_type == ERROR)
+        std::cout << "impossible";
+    else
+        std::cout << std::fixed << std::setprecision(1) << _float << "f";
+    std::cout << std::endl;
+}
+
+void	Scalar::printDouble()
+{
+	std::cout << "double: ";
+    if (_type == ERROR)
+	{
+        std::cout << "impossible" << std::endl;
+		return;
+	}
+    if (_value == "+inf")
+        std::cout << "+";
+    std::cout << std::fixed << std::setprecision(1) << _double;
+    std::cout << std::endl;
 }
