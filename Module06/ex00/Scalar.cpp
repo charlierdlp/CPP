@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:58:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/01 18:06:18 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:29:17 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	Scalar::printChar()
 	std::cout << "char: ";
     if (_type == ERROR)
         std::cout << "impossible";
-	else if (_char < 32 || _char > 126)
+	else if (_char < 32 || _char > 255)
 		std::cout << "Non displayable";
 	else
         std::cout << "'" << _char << "'";
