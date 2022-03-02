@@ -24,6 +24,12 @@ void identify(Base *p) // function that displays A, B, or C according to the rea
 		std::cout << "B" << std::endl;
 	else if (dynamic_cast<C *>(p))
 		std::cout << "C" << std::endl;
-	else
-		std::cout << "Unknown" << std::endl;
+}
+
+int main()
+{
+	Base *test;
+
+	test = generate();
+	identify(test);
 }

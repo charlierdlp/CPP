@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 19:35:34 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/01 20:07:26 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:55:42 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 struct Data
 {
 	int i;
+	int	n;
 	char c;
 	float f;
 };
@@ -46,12 +47,21 @@ int main ()
 	std::cout << "data.i = " << data.i << std::endl;
 	std::cout << "data.c = " << data.c << std::endl;
 	std::cout << "data.f = " << data.f << std::endl;
-	std::cout << "----------------------------" << std::endl;
+	std::cout << "-------------------" << std::endl;
 	raw = serialize(&data);
 	ptr = deserialize(raw);
 	std::cout << "ptr->i = " << ptr->i << std::endl;
 	std::cout << "ptr->c = " << ptr->c << std::endl;
 	std::cout << "ptr->f = " << ptr->f << std::endl;
+
+	data.n = 42;
+	uintptr_t serialized = serialize(&data);
+	std::cout << "serialized:     " << serialized << std::endl;
+	Data *deserialized = deserialize(serialized);
+	std::cout << "deserialized:   " << deserialized << std::endl;
+	std::cout << "original:       " << &data << std::endl;
+	std::cout << "deserialized n: " << deserialized->n << std::endl;
+	std::cout << "original n:     " << data.n << std::endl;
 
 	return 0;
 }

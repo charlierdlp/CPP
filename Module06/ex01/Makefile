@@ -1,6 +1,6 @@
 SRCS	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
-NAME	= Scalar
+NAME	= Identify
 CC		= clang++
 RM		= rm -f
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
