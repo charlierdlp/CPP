@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:58:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/01 19:29:17 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/03 12:58:30 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,15 @@ bool Scalar::isInt(std::string value)
 		if (isdigit(value[i]) == 0 && value[i] != '-' && value[i] != '+')
 			return false;
 	}
+	if (std::stol(_value) > 2147483647 || std::stol(_value) < -2147483647)
+		return false;
 	return true;
 }
 
 bool Scalar::isChar(std::string value)
 {
+	if (_char > std::numeric_limits<char>::max() || _char < std::numeric_limits<char>::min())
+		return false;
 	if (value.length() == 1 && std::isprint(value[0]))
 		return (true);
 	return (false);
@@ -123,7 +127,12 @@ void	Scalar::castValues()
 
 Scalar::ScalarType Scalar::checkType()
 {
-	if (isChar(_value))
+	if (isInt(_value))
+	{
+		_int = std::stoi(_value);
+		return (Scalar::INT);
+	}
+	else if (isChar(_value))
 	{
 		_char = _value[0];
 		return (Scalar::CHAR);
@@ -138,11 +147,6 @@ Scalar::ScalarType Scalar::checkType()
 		_double = std::stod(_value);
 		return (Scalar::DOUBLE);
 	}
-	else if (isInt(_value))
-	{
-		_int = std::stoi(_value);
-		return (Scalar::INT);
-	}
 	else
 		return (ERROR);
 }
@@ -150,9 +154,9 @@ Scalar::ScalarType Scalar::checkType()
 void	Scalar::printChar()
 {
 	std::cout << "char: ";
-    if (_type == ERROR || _char > std::numeric_limits<char>::max() || _char < std::numeric_limits<char>::min())
+    if (_type == ERROR || isPseudo(_value))
         std::cout << "impossible";
-	else if (_char < 32 || _char > 255)
+	else if (_char < 32 || _char > 126)
 		std::cout << "Non displayable";
 	else
         std::cout << "'" << _char << "'";
@@ -162,7 +166,7 @@ void	Scalar::printChar()
 void	Scalar::printInt()
 {    
 	std::cout << "int: ";
-	if (_type == ERROR || _int > std::numeric_limits<int>::max() || _value < std::numeric_limits<int>::min())
+	if (_type == ERROR || isPseudo(_value))
         std::cout << "impossible";
 	else
         std::cout << _int;
