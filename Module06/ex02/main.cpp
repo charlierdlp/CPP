@@ -38,11 +38,42 @@ void identify(Base *p)
 		std::cout << "C" << std::endl;
 }
 
+void identify(Base &p)
+{
+	try
+	{
+		Base castA = dynamic_cast<A &>(p);
+		std::cout << "A" << std::endl;
+	}
+	catch (std::bad_cast &e)
+	{
+	}
+	try
+	{
+		Base castB = dynamic_cast<B &>(p);
+		std::cout << "B" << std::endl;
+	}
+	catch (std::bad_cast &e)
+	{
+	}
+	try
+	{
+		Base castC = dynamic_cast<C &>(p);
+		std::cout << "C" << std::endl;
+	}
+	catch (std::bad_cast &e)
+	{
+	}
+}
+
 int main()
 {
 	Base *test;
 
 	test = generate();
 	identify(test);
+	identify(*test);
 
+	delete test;
+	return (0);
 }
