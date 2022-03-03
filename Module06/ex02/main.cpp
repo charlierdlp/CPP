@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/03 17:02:55 by cruiz-de          #+#    #+#             */
+/*   Updated: 2022/03/03 19:27:15 by cruiz-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -16,7 +28,7 @@ Base *generate()
 		return (new C);
 }
 
-void identify(Base *p) // function that displays A, B, or C according to the real type of p
+void identify(Base *p)
 {
 	if (dynamic_cast<A *>(p))
 		std::cout << "A" << std::endl;
@@ -32,4 +44,5 @@ int main()
 
 	test = generate();
 	identify(test);
+
 }

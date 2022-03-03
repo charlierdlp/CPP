@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 19:35:34 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/02 11:55:42 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/03 19:14:09 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ Data* deserialize(uintptr_t raw)
 int main ()
 {
 	Data data;
-	Data *ptr;
 	uintptr_t raw;
+	Data *ptr;
 
 	data.i = 42;
 	data.c = 'a';
@@ -53,15 +53,6 @@ int main ()
 	std::cout << "ptr->i = " << ptr->i << std::endl;
 	std::cout << "ptr->c = " << ptr->c << std::endl;
 	std::cout << "ptr->f = " << ptr->f << std::endl;
-
-	data.n = 42;
-	uintptr_t serialized = serialize(&data);
-	std::cout << "serialized:     " << serialized << std::endl;
-	Data *deserialized = deserialize(serialized);
-	std::cout << "deserialized:   " << deserialized << std::endl;
-	std::cout << "original:       " << &data << std::endl;
-	std::cout << "deserialized n: " << deserialized->n << std::endl;
-	std::cout << "original n:     " << data.n << std::endl;
 
 	return 0;
 }
