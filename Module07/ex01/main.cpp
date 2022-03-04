@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:58:50 by cruiz-de          #+#    #+#             */
+/*   Updated: 2022/03/04 12:43:01 by cruiz-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "iter.hpp"
 
 int main()
@@ -14,20 +26,7 @@ int main()
 	std::cout << "chars: " << std::endl;
 	iter(chars, 5, print);
 	std::cout << "strings: " << std::endl;
-	std::cout << "----------------" << std::endl;
-	std::cout << "Adding 1 to each element:" << std::endl;
-	std::cout << "nums: " << std::endl;
-	iter(nums, 4, oneUp);
-	iter(nums, 4, print);
-	std::cout << "floats: " << std::endl;
-	iter(floats, 4, oneUp);
-	iter(floats, 4, print);
-	std::cout << "chars: " << std::endl;
-	iter(chars, 5, oneUp);
-	iter(chars, 5, print);
-	std::cout << "strings: " << std::endl;
-	iter(strings, 5, oneUp);
 	iter(strings, 5, print);
-	
+
 	return 0;
 }
