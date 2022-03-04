@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:59:00 by cruiz-de          #+#    #+#             */
+/*   Updated: 2022/03/04 17:40:46 by cruiz-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
 template <typename T>
@@ -14,7 +26,7 @@ class Array
 		Array(unsigned int n) : _size(n), _data(new T[n])
 		{
 		}
-		Array(const Array<T>& other) : _size(other._size), _data(new T[other._size])
+		Array(const Array & other) : _size(other._size), _data(new T[other._size])
 		{
 			for (unsigned int i = 0; i < _size; i++)
 				_data[i] = other._data[i];
@@ -23,7 +35,7 @@ class Array
 		{
 			delete[] _data;
 		}
-		Array operator=(const Array<T>& other)
+		Array &operator=(const Array & other)
 		{
 			if (this != &other)
 			{
@@ -35,10 +47,17 @@ class Array
 			}
 			return *this;
 		}
-		Array operator[](unsigned int i) const
+		T &operator[](unsigned int i)
 		{
 			if (i >= _size || i < 0)
-				throw std::exception();
+				throw IndexOutOfBounds();
 			return _data[i];
 		}
+
+		class IndexOutOfBounds: public std::exception
+		{
+        	const char * what() const throw() { 
+            	return "Array index out of bounds";
+        }
+    };
 };
