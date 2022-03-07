@@ -65,14 +65,15 @@ bool Scalar::isChar(std::string value)
 
 bool Scalar::isFloat(std::string value)
 {
-	if (value.find('.') != std::string::npos && value[value.length() - 1] == 'f')
+
+	if (value.find('.') != std::string::npos && value[value.length() - 1] == 'f' && value.find('f') == value.length() - 1)
 		return (true);
 	return (false);
 }
 
 bool Scalar::isDouble(std::string value)
 {
-	if (value.find('.') != std::string::npos && value[value.length() - 1] != 'f')
+	if (value.find('.') != std::string::npos && value[value.length() - 1] != 'f' && value.find('f') == std::string::npos)
 		return (true);
 	return (false);
 }
