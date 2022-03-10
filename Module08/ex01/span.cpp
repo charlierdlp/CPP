@@ -40,3 +40,29 @@ int Span::shortestSpan()
 	}
 	return shortest;
 }
+
+int Span::longestSpan()
+{
+	if (_vector.size() < 2)
+		throw Span::SpanEmptyException();
+	int longest = _vector[1] - _vector[0];
+	for (unsigned int i = 0; i < _vector.size() - 1; i++)
+	{
+		int span = _vector[i + 1] - _vector[i];
+		if (span > longest)
+			longest = span;
+	}
+	return longest;
+}
+
+
+void Span::add_random(int n)
+{
+	for(int i = 0; i < n; i++)
+	{
+		int random = rand() % 100;
+		addNumber(random);
+		if (_vector.size() == _N)
+			break;
+	}
+}

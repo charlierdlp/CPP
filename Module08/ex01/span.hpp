@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include <exception>
+#include <iostream>
 
 class Span
 {
@@ -18,6 +20,7 @@ class Span
 		void addNumber(int n);
 		int shortestSpan();
 		int longestSpan();
+		void add_random(int n);
 	
 	class SpanFullException : public std::exception
 	{
