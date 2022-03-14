@@ -14,20 +14,22 @@ int main()
 
 	try
 	{
-		easyfind(list1, 3);
+		if (easyfind(list1, 3))
+			std::cout << "Element found" << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Not found" << std::endl;
+		std::cout << "Element not found" << std::endl;
 	}
 
 	try
 	{
-		easyfind(list1, 6);
+		if (easyfind(list1, 3))
+			std::cout << "Element found" << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Not found" << std::endl;
+		std::cout << "Element not found" << std::endl;
 	}
 	
 	return 0;

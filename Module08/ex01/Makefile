@@ -1,6 +1,6 @@
 SRCS	= main.cpp span.cpp
 OBJS	= ${SRCS:.cpp=.o}
-NAME	= Find
+NAME	= Span
 CC		= clang++
 RM		= rm -f
 CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
