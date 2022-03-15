@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:59:05 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/04 17:58:28 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:32:02 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,26 @@ int main(int, char**)
     {
         std::cout << "Array is empty." << std::endl;
     }
+
     std::cout << std::endl;
-    std::cout << "int array test:" << std::endl;
+
+    std::cout << "Int array test:" << std::endl;
     Array<int> Test(5);
     for (int i = 0; i < 5; i++)
     {
         const int value = (rand() % 10) + 1;
         Test[i] = value;
         std::cout << Test[i] << std::endl;
+    }
+
+    Array<char> character(4);
+    character[0] = 'a';
+	character[1] = 'b';
+	character[2] = 'c';
+    character[3] = 'd';
+    for (int i = 0; i < 4; i++)
+    {
+        std::cout << character[i] << std::endl;
     }
 
 }

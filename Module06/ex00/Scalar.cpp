@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:58:04 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/03 12:58:30 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:28:27 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ bool Scalar::isChar(std::string value)
 bool Scalar::isFloat(std::string value)
 {
 
-	if (value.find('.') != std::string::npos && value[value.length() - 1] == 'f' && value.find('f') == value.length() - 1)
+	if (value.find('.') != std::string::npos && value[value.length() - 1] == 'f' && value.find('f') == value.length() - 1 && value.length() > 2)
 		return (true);
 	return (false);
 }
 
 bool Scalar::isDouble(std::string value)
 {
-	if (value.find('.') != std::string::npos && value[value.length() - 1] != 'f' && value.find('f') == std::string::npos)
+	if (value.find('.') != std::string::npos && value[value.length() - 1] != 'f' && value.find('f') == std::string::npos  && value.find('f') != value.length() - 1 && value.length() > 2)
 		return (true);
 	return (false);
 }
