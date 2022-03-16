@@ -14,17 +14,22 @@
 
 int main()
 {
-	Span sp1 = Span(5);
-	Span sp2 = Span(50);
+	std::vector<int> vector;
+	Span sp = Span(5);
+	sp.addNumber(5);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 
-	sp1.addNumber(1);
-	sp1.addNumber(2);
-	sp1.addNumber(3);
-	sp1.addNumber(4);
-	sp1.addNumber(5);
+	for (int i = 0; i < 10042; i++)
+		vector.push_back(i);
+	Span sp2 = Span(vector.size());
+	sp2.addRange(vector.begin(), vector.end());
 
-	sp2.add_random(50);
+	//std::cout << sp2.shortestSpan() << std::endl;
+	//std::cout << sp2.longestSpan() << std::endl;
 
-	//std::cout << sp1.shortestSpan() << std::endl;
-	std::cout << sp1.longestSpan() << std::endl;
 }

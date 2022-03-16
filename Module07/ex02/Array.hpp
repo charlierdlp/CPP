@@ -50,6 +50,11 @@ class Array
 			return _data[i];
 		}
 
+		unsigned int size() const
+		{
+			return _size;
+		}
+
 		class IndexOutOfBounds: public std::exception
 		{
         	const char * what() const throw() { 

@@ -14,9 +14,10 @@
 #include "Array.hpp"
 
 #define MAX_VAL 750
+
 int main(int, char**)
 {
-/*  Array<int> numbers(MAX_VAL);
+ Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
 	srand(time(NULL));
 	for (int i = 0; i < MAX_VAL; i++)
@@ -59,11 +60,13 @@ int main(int, char**)
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		numbers[i] = rand();
+		std::cout << numbers[i] << std::endl;
 	}
-	delete [] mirror;//
-	return 0; */
 
-	std::cout << "Empty array test:" << std::endl;
+	delete [] mirror;//
+	return 0;
+
+	/* std::cout << "Empty array test:" << std::endl;
 	try
 	{
 		Array<int> Empty;
@@ -77,13 +80,25 @@ int main(int, char**)
 	std::cout << std::endl;
 
 	std::cout << "Int array test:" << std::endl;
-	Array<int> Test(5);
+	Array<int> test1(5);
 	for (int i = 0; i < 5; i++)
 	{
 		const int value = (rand() % 10) + 1;
-		Test[i] = value;
-		std::cout << Test[i] << std::endl;
+		test1[i] = value;
+		std::cout << test1[i] << std::endl;
 	}
+	std::cout << "Int array size: " << test1.size() << std::endl;
+	std::cout << std::endl;
+
+	Array<float> test2(6);
+	for (int i = 0; i < 6; i++)
+	{
+		const float value = (rand() % 10) + 0.42;
+		test2[i] = value;
+		std::cout << test2[i] << std::endl;
+	}
+	std::cout << "Float array size: " << test2.size() << std::endl;
+	std::cout << std::endl;
 
 	std::cout << "Char array test:" << std::endl;
 	Array<char> character(4);
@@ -93,5 +108,6 @@ int main(int, char**)
 	character[3] = 'd';
 	for (int i = 0; i < 4; i++)
 		std::cout << character[i] << std::endl;
-
+	std::cout << "Char array size: " << character.size() << std::endl;
+ */
 }

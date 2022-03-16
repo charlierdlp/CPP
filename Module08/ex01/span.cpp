@@ -45,30 +45,48 @@ int Span::shortestSpan()
 {
 	if (_vector.size() < 2)
 		throw Span::SpanEmptyException();
-	int shortest = _vector[1] - _vector[0];
+	int min = INT_MAX;
 	for (unsigned int i = 0; i < _vector.size() - 1; i++)
 	{
-		int span = _vector[i + 1] - _vector[i];
-		if (span < shortest)
-			shortest = span;
+		for (unsigned int j = i + 1; j < _vector.size(); j++)
+		{
+			if (std::abs(_vector[i] - _vector[j]) < min)
+				min = std::abs(_vector[i] - _vector[j]);
+		}
 	}
-	return shortest;
+	return min;
 }
 
 int Span::longestSpan()
 {
+	int longest = 0;
 	if (_vector.size() < 2)
 		throw Span::SpanEmptyException();
-	int longest = _vector[_vector.size() - 1] - _vector[0];
 	for (unsigned int i = 0; i < _vector.size() - 1; i++)
 	{
-		int span = _vector[i + 1] - _vector[i];
-		if (span > longest)
-			longest = span;
+		for (unsigned int j = i + 1; j < _vector.size(); j++)
+		{
+			int span = _vector[j] - _vector[i];
+			if (span > longest)
+				longest = span;
+		}
 	}
 	return longest;
+
 }
 
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_vector.size() < _N)
+	{
+		for (std::vector<int>::iterator it = begin; it != end; it++)
+		{
+			_vector.push_back(*it);
+		}
+	}
+	else
+		throw Span::SpanFullException();
+}
 
 void Span::add_random(int n)
 {
