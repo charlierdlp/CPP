@@ -6,7 +6,7 @@
 /*   By: cruiz-de <cruiz-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:02:57 by cruiz-de          #+#    #+#             */
-/*   Updated: 2022/03/15 12:02:57 by cruiz-de         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:17:27 by cruiz-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
 	mstack.push(2);
 	mstack.push(1);
 	mstack.push(0);
+	std::cout << "Size: " << mstack.size() << std::endl;
 	std::cout << "Top element: " << mstack.top() << std::endl;
 	mstack.pop();
 	std::cout << "Size: " << mstack.size() << std::endl;
